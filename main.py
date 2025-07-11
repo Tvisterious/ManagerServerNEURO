@@ -37,5 +37,4 @@ async def compare_answers(CorrectAnswer:str = Body(embed=True),
     emb1 = SentTrans.encode(CorrectAnswer, convert_to_tensor=True, device=device)
     emb2 = SentTrans.encode(UserAnswer, convert_to_tensor=True, device=device)
     result = util.cos_sim(emb1, emb2).item()
-
     return round(result * 5)
